@@ -1,0 +1,26 @@
+Install Python3
+
+Install OpenCV
+ - sudo su -
+ - pip3 install imutils
+ - pip3 install opencv-python
+ 
+Control-D to exit su mode
+ 
+Create folder
+ - mkdir motionDetector
+ - cd motionDetector
+ 
+Download model and unzip (pick one of the following)
+----------------------------------------------------
+Fast model but not most accurate
+ - wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz
+Trade off b/w speed and accuracy
+ - wget http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
+Most accurate, but slower
+ - wget http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2018_01_28.tar.gz
+ 
+Unzip into project folder
+ - tar xvzf [filename]
+ 
+ 
