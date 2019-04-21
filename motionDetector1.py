@@ -43,7 +43,7 @@ class DetectorAPI:
             feed_dict={self.image_tensor: image_np_expanded})
         end_time = time.time()
 
-        print("Elapsed Time:", end_time-start_time)
+        #print("Elapsed Time:", end_time-start_time)
 
         im_height, im_width,_ = image.shape
         boxes_list = [None for i in range(boxes.shape[1])]
@@ -64,6 +64,8 @@ if __name__ == "__main__":
     odapi = DetectorAPI(path_to_ckpt=model_path)
     threshold = 0.7
     cap = cv2.VideoCapture(0)
+    
+    iHumans = 0
 
     while True:
         r, img = cap.read()
@@ -77,8 +79,12 @@ if __name__ == "__main__":
             if classes[i] == 1 and scores[i] > threshold:
                 box = boxes[i]
                 cv2.rectangle(img,(box[1],box[0]),(box[3],box[2]),(255,0,0),2)
+                iHumans += 1
 
+        print("Number of humans = " + str(iHumans))
         cv2.imshow("preview", img)
         key = cv2.waitKey(1)
         if key & 0xFF == ord('q'):
             break
+        
+        iHumans = 0
