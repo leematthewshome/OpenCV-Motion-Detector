@@ -4,6 +4,7 @@ Install OpenCV
  - sudo su -
  - pip3 install imutils
  - pip3 install opencv-python
+ - pip3 install tensorflow
  
 Control-D to exit su mode
  
